@@ -16,6 +16,22 @@ const About = () => {
   return (
     <section className="section-padding" ref={ref}>
       <div className="container-custom">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-sm font-medium text-primary uppercase tracking-wider">
+            About Us
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-4">
+            The Team Behind{' '}
+            <span className="gradient-text">LiftAway</span>
+          </h2>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - About Text */}
           <motion.div
@@ -23,13 +39,6 @@ const About = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">
-              About Us
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-              The Team Behind{' '}
-              <span className="gradient-text">LiftAway</span>
-            </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
                 LiftAway is built by a skilled full-stack development team focused on creating scalable, user-centric platforms. The project reflects our commitment to transforming traditional industries through intelligent technology and clean, reliable design.

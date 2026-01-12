@@ -16,13 +16,13 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <ProblemSolution />
         <About />
+        <ProblemSolution />
         <Features />
-        <TechStack />
         <Architecture />
         <Challenges />
         <Impact />
+        <TechStack />
         <Contact />
       </main>
       <Footer />

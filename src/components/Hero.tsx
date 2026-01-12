@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero-illustration.png';
 
 const Hero = () => {
-  const titleWords = ['Smarter', 'Recycling', 'Collection,', 'Built', 'for', "Today's", 'Needs'];
+  const titleLine1 = ['Intelligent Recycling', '& ', 'Waste Collection'];
+  const titleLine2 = ['Faster Pickups,', 'Smarter Routing,', "Cleaner UK"];
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
@@ -31,24 +32,45 @@ const Hero = () => {
             </motion.div>
 
             {/* Split Text Animation Title */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              {titleWords.map((word, index) => (
-                <motion.span
-                  key={word}
-                  initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: index * 0.1,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                  className={`inline-block mr-3 ${
-                    index === 1 ? 'gradient-text' : 'text-foreground'
-                  }`}
-                >
-                  {word}
-                </motion.span>
-              ))}
+            <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              <div className="flex flex-wrap gap-x-2">
+
+                {titleLine1.map((word, index) => (
+                  <motion.span
+                    key={word + index}
+                    initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: index * 0.1,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    className={`inline-block mr-3 ${
+                      index === 1 ? 'gradient-text' : 'text-foreground'
+                    }`}
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
+              <div className="text-sm sm:text-base md:text-lg lg:text-xl flex flex-wrap gap-2">
+                {titleLine2.map((word, index) => (
+                  <motion.span
+                    key={word + index}
+                    initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: (titleLine1.length + index) * 0.1,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    className="inline-block text-foreground px-3 py-1 rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 hover:border-primary/40 hover:shadow-glow transition-all cursor-default"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
             </h1>
 
             {/* Subtitle */}
@@ -68,8 +90,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <Button size="lg" className="text-base px-8 shadow-glow" asChild>
-                <a href="https://liftawaysolutions.com" target="_blank" rel="noopener noreferrer">Join For Free</a>
+              <Button size="lg" className="text-base px-8 shadow-glow animate-pulse" asChild>
+                <a href="https://liftawaysolutions.com/customer-dashboard" target="_blank" rel="noopener noreferrer">Join For Free</a>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8">Learn More</Button>
             </motion.div>

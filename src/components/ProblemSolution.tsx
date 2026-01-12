@@ -45,7 +45,7 @@ const ProblemSolution = () => {
         </motion.div>
 
         {/* Problem/Solution Grid */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start relative">
           {/* Problems Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -73,18 +73,6 @@ const ProblemSolution = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* Connector */}
-          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={isInView ? { scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.8 }}
-              className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-glow"
-            >
-              <ArrowRight className="w-8 h-8 text-primary-foreground" />
-            </motion.div>
-          </div>
 
           {/* Solutions Column */}
           <motion.div

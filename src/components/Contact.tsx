@@ -1,13 +1,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Phone, Linkedin, Github, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
-const contactLinks = [
-  { icon: Mail, label: 'Email', value: 'hello@liftaway.co.uk', href: 'mailto:hello@liftaway.co.uk' },
-  { icon: Phone, label: 'Phone', value: '+44 7XXX XXX XXX', href: 'tel:+447000000000' },
-  { icon: Linkedin, label: 'LinkedIn', value: 'linkedin.com/in/developer', href: 'https://linkedin.com' },
-  { icon: Github, label: 'GitHub', value: 'github.com/developer', href: 'https://github.com' },
+const contactInfo = [
+  { icon: Mail, label: 'Email Support', desc: 'Our team can respond in real time.', value: 'support@liftawaysolutions.com', href: 'mailto:support@liftawaysolutions.com' },
+  { icon: MapPin, label: 'Visit Our Office', desc: 'Visit our location in real life.', value: 'London, United Kingdom', href: '#' },
+  { icon: Phone, label: 'Call Us Directly', desc: 'Available during working hours.', value: '+44 20 XXXX XXXX', href: 'tel:+442000000000' },
 ];
 
 const Contact = () => {
@@ -15,25 +13,23 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30" ref={ref}>
+    <section id="contact" className="section-padding" ref={ref}>
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="mb-12"
           >
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">
-              Get In Touch
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-4">
-              Let's{' '}
-              <span className="gradient-text">Connect</span>
+            <span className="px-3 py-1 text-xs border border-border rounded-full">Reach Out To Us</span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-4">
+              We'd Love to <span className="gradient-text">Hear From You</span>
             </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Interested in the project or want to discuss opportunities? I'd love to hear from you.
+            <p className="text-muted-foreground">
+              Or just reach out manually to{' '}
+              <a href="mailto:contact@liftawaysolutions.com" className="text-primary hover:underline">contact@liftawaysolutions.com</a>
             </p>
           </motion.div>
 
@@ -42,47 +38,46 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+            className="grid md:grid-cols-3 gap-8 mb-16"
           >
-            {contactLinks.map((contact, index) => (
-              <motion.a
+            {contactInfo.map((contact, index) => (
+              <motion.div
                 key={contact.label}
-                href={contact.href}
-                target={contact.href.startsWith('http') ? '_blank' : undefined}
-                rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="glass-card p-6 text-center hover-lift glow-effect group"
               >
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <contact.icon className="w-6 h-6 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3">
+                  <contact.icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-display font-semibold mb-1">{contact.label}</h3>
-                <p className="text-sm text-muted-foreground truncate">{contact.value}</p>
-              </motion.a>
+                <h3 className="font-display text-lg font-bold mb-2">{contact.label}</h3>
+                <p className="text-muted-foreground text-sm mb-3">{contact.desc}</p>
+                <a href={contact.href} className="text-primary font-semibold hover:underline">
+                  {contact.value}
+                </a>
+              </motion.div>
             ))}
           </motion.div>
 
-          {/* Demo Links */}
+          {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="glass-card p-8 text-center"
+            className="relative overflow-hidden rounded-2xl p-10 text-center text-white"
+            style={{ background: 'linear-gradient(to bottom, hsl(160 60% 45%), hsl(160 50% 35%))' }}
           >
-            <h3 className="font-display text-xl font-semibold mb-4">
-              Check Out the Project
-            </h3>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="shadow-glow group">
-                <ExternalLink className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
-                Live Demo
-              </Button>
-              <Button size="lg" variant="outline">
-                <Github className="w-5 h-5 mr-2" />
-                View Source
-              </Button>
+            <div className="absolute inset-0 bg-[image:var(--gradient-glow)] opacity-30" />
+            <div className="relative z-10">
+              <h3 className="font-display text-3xl md:text-4xl font-bold mb-3">
+                Ready to Transform Your Waste Management?
+              </h3>
+              <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+                Join thousands of users experiencing smarter, faster, and more reliable recycling collection.
+              </p>
+              <button className="px-10 py-3 bg-white text-primary hover:bg-white/90 transition-all rounded-full font-semibold text-base">
+                <a href="https://liftawaysolutions.com/app/" target="_blank" rel="noopener noreferrer">Get Started Free</a>
+              </button>
             </div>
           </motion.div>
         </div>

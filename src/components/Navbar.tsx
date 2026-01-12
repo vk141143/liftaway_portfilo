@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Features', href: '#features' },
-  { label: 'Architecture', href: '#architecture' },
+  // { label: 'Features', href: '#features' },
+  // { label: 'Architecture', href: '#architecture' },
   { label: 'Case Study', href: '#case-study' },
-  { label: 'Tech Stack', href: '#tech-stack' },
+  // { label: 'Tech Stack', href: '#tech-stack' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -67,8 +67,8 @@ const Navbar = () => {
             <Button variant="ghost" size="sm" className="font-medium" asChild>
               <a href="https://liftawaysolutions.com" target="_blank" rel="noopener noreferrer">Login</a>
             </Button>
-            <Button size="sm" className="font-medium shadow-glow" asChild>
-              <a href="https://liftawaysolutions.com" target="_blank" rel="noopener noreferrer">join for free</a>
+            <Button size="sm" className="font-medium shadow-glow animate-pulse" asChild>
+              <a href="https://liftawaysolutions.com/customer-dashboard" target="_blank" rel="noopener noreferrer">join for free</a>
             </Button>
           </div>
 
@@ -109,8 +109,8 @@ const Navbar = () => {
                 <Button variant="outline" className="flex-1" asChild>
                   <a href="https://liftawaysolutions.com/app/" target="_blank" rel="noopener noreferrer">Login</a>
                 </Button>
-                <Button className="flex-1 shadow-glow" asChild>
-                  <a href="https://liftawaysolutions.com/app/" target="_blank" rel="noopener noreferrer">Sign Up</a>
+                <Button className="flex-1 shadow-glow animate-pulse" asChild>
+                  <a href="https://liftawaysolutions.com/customer-dashboard" target="_blank" rel="noopener noreferrer">Sign Up</a>
                 </Button>
               </div>
             </div>
